@@ -1,44 +1,45 @@
 import numpy as np
-from flask import Flask, jsonify
-from sqlalchemy import create_engine, Column, Integer, String
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import Session
 
+import sqlalchemy
+from sqlalchemy.ext.automap import automap_base
+from sqlalchemy.orm import Session
+from sqlalchemy import create_engine, func
+
+from flask import Flask, jsonify, render_template
+
+
+#################################################
 # Database Setup
+#################################################
 engine = create_engine("sqlite:///autotheft.db")
 
-# Declare a base class for declarative class definitions
-Base = declarative_base()
+# reflect an existing database into a new model
+Base = automap_base()
+# reflect the tables
+Base.prepare(autoload_with=engine)
 
-# Define your table class explicitly
-class AutoTheftTable(Base):
-    __tablename__ = 'autotheft_tb'
-    id = Column(Integer, primary_key=True)
-    publicaddress = Column(String)
-    caseNumber = Column(String)  # Make sure to add other columns as needed
-    precinct = Column(String)
-    reportedDate = Column(String)
-    reportedDateTime = Column(String)
-    offense = Column(String)
-    description = Column(String)
-    centerLong = Column(String)
-    centerLat = Column(String)
-    centerX = Column(String)
-    centerY = Column(String)
-    neighborhood = Column(String)
+# Save reference to the table
+AutoTheftTable = Base.classes.autotheft_tb
 
+#################################################
 # Flask Setup
+#################################################
 app = Flask(__name__)
 
+
+#################################################
+# Flask Routes
+#################################################
 # Flask Route
 @app.route("/")
 def welcome():
     """List all available API routes."""
-    return (
-        f"Available Routes:<br/>"
-        f"/api/v1.0/neighborhood<br/>"
-        f"/api/v1.0/autotheft_tb"
-    )
+    return render_template('index.html')
+
+    #     f"Available Routes:<br/>"
+    #     f"/api/v1.0/neighborhood<br/>"
+    #     f"/api/v1.0/autotheft_tb"
+    # )
 
 @app.route("/api/v1.0/neighborhood")
 def neighborhood():
