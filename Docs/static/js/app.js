@@ -1,15 +1,15 @@
-// Get the Roadster endpoint
-const roadster = "/api/v1.0/neighborhood";
+// Get the Neighborhood endpoint
+const neighborHood = "/api/v1.0/neighborhood";
 
 // Fetch the JSON data and console log it
-d3.json(roadster).then(function(data) {
+d3.json(neighborHood).then(function(data) {
   console.log(data);
 });
 
-// Get the capsules endpoint
-const capsules = "/api/v1.0/autotheft_tb";
+// Get the autotheft endpoint
+const autoTheft = "/api/v1.0/autotheft_tb";
 
 // Fetch the JSON data and console log it
-d3.json(capsules).then(function(data) {
+d3.json(autoTheft).then(function(data) {
   console.log(data);
 });
