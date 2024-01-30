@@ -8,6 +8,14 @@
   <title>Analysis of Auto Thefts in Minneapolis:</title>
   <title> Dude! Where's my car?</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- Include Leaflet.js CSS and JS -->
+ <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+ <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+ <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+ <script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
+
+
 </head>
 
 <body>
@@ -36,8 +44,8 @@
         <div id="bar"></div>
       </div>
       <div class="col-md-7">
-        <div id="map"></div>
-      </div>
+        <div id="map" style="height: 400px;"></div>
+     </div>
     </div>
     <div class="row">
       <div class="col-md-5">
