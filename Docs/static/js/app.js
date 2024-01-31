@@ -1,10 +1,14 @@
 // Get the autotheft data from Flask route
 const capsules = "/api/v1.0/autotheft_tb";
+// Fetch the GeoJSON data for police precincts
+
+const precincts = "/api/v1.0/precincts";
+var map = L.map('map').setView([44.9778, -93.2650], 12);
 
 // Fetch the JSON data and create the heatmap
 d3.json(capsules).then(function (data) {
     // Set up Leaflet map
-    var map = L.map('map').setView([44.9778, -93.2650], 12);
+    
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '© OpenStreetMap contributors'
@@ -42,4 +46,41 @@ d3.json(capsules).then(function (data) {
         blur: 15,
         maxZoom: 15
     }).addTo(map);
+})
+
+d3.json(precincts).then(function(data) {
+    console.log(data);
+    // Assuming your GeoJSON has a MultiPolygon geometry
+    var geojsonPrecincts = L.geoJSON(data, {
+        style: {
+            color: "blue",
+            fillColor: "blue",
+            fillOpacity: 0.1,
+            opacity:.3
+        }
+    }).addTo(map);
+    
+});
+
+// Fetch the GeoJSON data for neighborhoods
+const neighborhoods = "/api/v1.0/neighborhoods";
+d3.json(neighborhoods).then(function(data) {
+
+    
+    console.log(data);
+    // Assuming your GeoJSON has a MultiPolygon geometry
+    var geojsonNeighborhoods = L.geoJSON(data, {
+        style: {
+            color: "red",
+            fillColor: "red",
+            fillOpacity: 0.1,
+            opacity:.3
+        }
+    }).addTo(map);
+    // Add a control layer for switching between layers
+    var baseMaps = {
+        "Neighborhoods": geojsonNeighborhoods,
+        "Precincts": geojsonPrecincts
+    };
+    L.control.layers(null, baseMaps).addTo(map);
 });
