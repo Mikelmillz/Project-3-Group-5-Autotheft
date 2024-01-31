@@ -47,6 +47,25 @@ def neighborhood():
     finally:
         session.close()
 
+@app.route("/api/v1.0/precincts")
+def precincts_areas():
+    # Create our session (link) from Python to the DB
+    import json
+
+    with open("Resources/Minneapolis_Police_Precincts.geojson") as e:
+        c = json.load(e)
+        return c
+    
+@app.route("/api/v1.0/neighborhoods")
+def neighborhood_areas():
+    # Create our session (link) from Python to the DB
+    import json
+    
+    with open("Resources\Minneapolis_Neighborhoods.geojson") as f:
+        d = json.load(f)
+        return d    
+    
+
 @app.route("/api/v1.0/autotheft_tb")
 def autotheft_tb():
     # Create our session (link) from Python to the DB
