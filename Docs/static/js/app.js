@@ -16,10 +16,20 @@ d3.json(capsules).then(function (data) {
     // Create MarkerClusterGroup
     var markers = L.markerClusterGroup();
 
-    // Create markers and add to MarkerClusterGroup
+    // Create a custom icon for the car image
+    var carIcon = L.icon({
+        iconUrl: 'https://cdn1.iconfinder.com/data/icons/unicons-line-vol-2/24/car-sideview-512.png', 
+        iconSize: [32, 32], // Adjust the size of the icon 
+        iconAnchor: [16, 32],
+        popupAnchor: [0, -32]
+    });
+
+    // Create markers with custom car icon and add to MarkerClusterGroup
     heatData.forEach(function (point) {
-        var marker = L.marker(new L.LatLng(point[0], point[1]));
+        var marker = L.marker(new L.LatLng(point[0], point[1]), { icon: carIcon });
         markers.addLayer(marker);
+        console.log('Marker added:', point);
+        
     });
 
     // Add MarkerClusterGroup to the map
@@ -33,8 +43,3 @@ d3.json(capsules).then(function (data) {
         maxZoom: 15
     }).addTo(map);
 });
-
-
-
-
-    
