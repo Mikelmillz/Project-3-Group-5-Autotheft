@@ -4,6 +4,7 @@ from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
 from flask import Flask, jsonify, render_template
+import json
 
 #################################################
 # Database Setup
@@ -47,6 +48,20 @@ def neighborhood():
     finally:
         session.close()
 
+@app.route("/api/v1.0/precincts")
+def precincts_areas():
+    # Create our session (link) from Python to the DB
+    with open("Resources/Minneapolis_Police_Precincts.geojson") as e:
+        c = json.load(e)
+        return c
+
+@app.route("/api/v1.0/neighborhoods")
+def neighborhood_areas():
+    # Create our session (link) from Python to the DB
+    with open("Resources\Minneapolis_Neighborhoods.geojson") as f:
+        d = json.load(f)
+        return d
+
 @app.route("/api/v1.0/autotheft_tb")
 def autotheft_tb():
     # Create our session (link) from Python to the DB
@@ -74,6 +89,7 @@ def autotheft_tb():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
 
 
 
