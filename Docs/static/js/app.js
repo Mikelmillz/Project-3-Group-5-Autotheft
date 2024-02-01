@@ -1,24 +1,24 @@
 // Get the autotheft data from Flask route
 const capsules = "/api/v1.0/autotheft_tb";
 // Fetch the GeoJSON data for police precincts
-
 const precincts = "/api/v1.0/precincts";
+// Fetch the GeoJSON data for neighborhoods
+const neighborhoods = "/api/v1.0/neighborhoods";
+
 var map = L.map('map').setView([44.9778, -93.2650], 12);
+var markers = L.markerClusterGroup(); // Move this outside the d3.json callback
+
+var geojsonPrecincts, geojsonNeighborhoods; // Declare as global variables
 
 // Fetch the JSON data and create the heatmap
 d3.json(capsules).then(function (data) {
     // Set up Leaflet map
-    
-
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '© OpenStreetMap contributors'
     }).addTo(map);
 
     // Normalize the counts to get an incidence rate per neighborhood
     var heatData = data.map(point => [point.latitude, point.longitude]);
-
-    // Create MarkerClusterGroup
-    var markers = L.markerClusterGroup();
 
     // Create a custom icon for the car image
     var carIcon = L.icon({
@@ -33,7 +33,6 @@ d3.json(capsules).then(function (data) {
         var marker = L.marker(new L.LatLng(point[0], point[1]), { icon: carIcon });
         markers.addLayer(marker);
         console.log('Marker added:', point);
-        
     });
 
     // Add MarkerClusterGroup to the map
@@ -46,37 +45,35 @@ d3.json(capsules).then(function (data) {
         blur: 15,
         maxZoom: 15
     }).addTo(map);
-})
+});
 
+// Fetch the GeoJSON data for police precincts
 d3.json(precincts).then(function(data) {
     console.log(data);
     // Assuming your GeoJSON has a MultiPolygon geometry
-    var geojsonPrecincts = L.geoJSON(data, {
+    geojsonPrecincts = L.geoJSON(data, {
         style: {
             color: "blue",
             fillColor: "blue",
             fillOpacity: 0.1,
-            opacity:.3
+            opacity: 0.3
         }
     }).addTo(map);
-    
 });
 
 // Fetch the GeoJSON data for neighborhoods
-const neighborhoods = "/api/v1.0/neighborhoods";
 d3.json(neighborhoods).then(function(data) {
-
-    
     console.log(data);
     // Assuming your GeoJSON has a MultiPolygon geometry
-    var geojsonNeighborhoods = L.geoJSON(data, {
+    geojsonNeighborhoods = L.geoJSON(data, {
         style: {
             color: "red",
             fillColor: "red",
             fillOpacity: 0.1,
-            opacity:.3
+            opacity: 0.3
         }
     }).addTo(map);
+
     // Add a control layer for switching between layers
     var baseMaps = {
         "Neighborhoods": geojsonNeighborhoods,
