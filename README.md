@@ -21,19 +21,16 @@ https://opendata.minneapolismn.gov/datasets/cityoflakes::police-incidents-2023/a
 https://vote.minneapolismn.gov/media/-www-content-assets/documents/Reduced-Size-2022-Minneapolis-Wards-and-Precincts.pdf
 ## Project:
 Create an interactive dashboard to illustrate the Auto Theft occurrences for 2023.  Showing occurrences by 
-precinct and neighborhood.   3 visualizations were developed:
+precinct and neighborhood.   4 visualizations were developed:
 * Bar chart of the precinct statistics
   - Toggle Box
-  - Drop down for precincts stats
+* Drop down for precincts information when it is selected
 * Heatmap of incidence
-
 * Mapping layer outlining
-  - neighborhoods and 
-  - precincts
- 
-    
+  - neighborhoods 
 ## Interaction:
-* The Bar Graph is controlled by the Precinct Selector:  Select 1 through 5 to see the pricints displayed in the Bar Chart and the precinct information box.
+* The Bar Graph is controlled by the Precinct Selector:  Select 1 through 5 to see the precincts displayed in the Bar Chart.
+* The precinct Information box is also controlled by the precinct Selector
 * The Heat Map is controlled by zooming in and out using the + and - in the upper left corner.  the neighborhood and precinct layers can be turned on and off using the buttons in the upper right.
 ## Ethical:
 * Does the data reflect the reality? Is the source reliable? 
