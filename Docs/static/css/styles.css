@@ -22,13 +22,13 @@
 } 
 
 .neighborhood {
-    color: red; /* Customize the color for the neighborhood */
+    color: red; 
 }
 
 .month-highest {
-    color: blue; /* Customize the color for the month with the highest offense count */
+    color: blue; 
 }
 
 .month-lowest {
-    color: green; /* Customize the color for the month with the lowest offense count */
+    color: green; 
 }

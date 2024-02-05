@@ -27,28 +27,6 @@ AutoTheftTable = Base.classes.autotheft_tb
 app = Flask(__name__)
 
 
-#################################################
-# Flask Routes
-#################################################
-
-engine = create_engine("sqlite:///autotheft.db")
-
-# Reflect an existing database into a new model
-Base = automap_base()
-# Reflect the tables
-Base.prepare(autoload_with=engine)
-
-# Save reference to the table
-AutoTheftTable = Base.classes.autotheft_tb
-
-#################################################
-# Flask Setup
-#################################################
-app = Flask(__name__)
-
-#################################################
-# Flask Routes
-#################################################
 @app.route("/")
 def welcome():
     """List all available API routes."""

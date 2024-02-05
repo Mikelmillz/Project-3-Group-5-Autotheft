@@ -301,7 +301,7 @@ function addTextMarkers() {
         className: 'text-icon',
         html: '<div style="font-weight: bold;">Precinct 1</div>',
         iconSize: [100, 20],  
-        iconAnchor: [50, 0],  // Adjust the anchor point
+        iconAnchor: [50, 0],  
     });
 
     var coordinates1 = [44.9778, -93.2650];
@@ -311,8 +311,8 @@ function addTextMarkers() {
     var textIcon2 = L.divIcon({
         className: 'text-icon',
         html: '<div style="font-weight: bold;">Precinct 2</div>',
-        iconSize: [100, 20],  // Adjust the size of the icon
-        iconAnchor: [50, 0],  // Adjust the anchor point
+        iconSize: [100, 20],  
+        iconAnchor: [50, 0],  
     });
 
     var coordinates2 = [45.005641, -93.23];
@@ -322,8 +322,8 @@ function addTextMarkers() {
     var textIcon4 = L.divIcon({
         className: 'text-icon',
         html: '<div style="font-weight: bold;">Precinct 4</div>',
-        iconSize: [100, 20],  // Adjust the size of the icon
-        iconAnchor: [50, 0],  // Adjust the anchor point
+        iconSize: [100, 20],  
+        iconAnchor: [50, 0],  
     });
 
     var coordinates4 = [45.017998, -93.292790];
@@ -333,8 +333,8 @@ function addTextMarkers() {
     var textIcon3 = L.divIcon({
         className: 'text-icon',
         html: '<div style="font-weight: bold;">Precinct 3</div>',
-        iconSize: [100, 20],  // Adjust the size of the icon
-        iconAnchor: [50, 0],  // Adjust the anchor point
+        iconSize: [100, 20],  
+        iconAnchor: [50, 0],  
     });
 
     var coordinates3 = [44.941066, -93.238411
@@ -346,8 +346,8 @@ function addTextMarkers() {
     var textIcon5 = L.divIcon({
         className: 'text-icon',
         html: '<div style="font-weight: bold;">Precinct 5</div>',
-        iconSize: [100, 20],  // Adjust the size of the icon
-        iconAnchor: [50, 0],  // Adjust the anchor point
+        iconSize: [100, 20],  
+        iconAnchor: [50, 0],  
     });
 
     var coordinates5 = [44.936255, -93.29915
