@@ -93,7 +93,7 @@ function optionChanged(value) {
             // Process data to calculate offenses by month
             var offensesByMonth = {};
             data.forEach(offense => {
-                var month = new Date(offense.reportedDate).getMonth() + 1; // Month is zero-based
+                var month = new Date(offense.reportedDate).getMonth() + 1; 
                 if (!offensesByMonth[month]) {
                     offensesByMonth[month] = 1;
                 } else {
@@ -164,7 +164,7 @@ function calculateAndUpdatePrecinctInfo(data) {
     // Calculate offenses by month
     var offensesByMonth = {};
     data.forEach(offense => {
-        var month = new Date(offense.reportedDate).getMonth() + 1; // Month is zero-based
+        var month = new Date(offense.reportedDate).getMonth() + 1; 
         if (!offensesByMonth[month]) {
             offensesByMonth[month] = 1;
         } else {
@@ -199,9 +199,9 @@ function calculateAndUpdatePrecinctInfo(data) {
 
     // Update the Precinct Info panel with the calculated information
     var precinctInfoPanel = document.getElementById('precinct-info');
-    precinctInfoPanel.innerHTML = `<p>Neighborhood with highest offense: <span style="color: red">${highestNeighborhood.toUpperCase()}</p>`;
-    precinctInfoPanel.innerHTML += `<p>Highest offense month: <span style="color: blue">${highestMonthName.toUpperCase()}</p>`;
-    precinctInfoPanel.innerHTML += `<p>Lowest offense month: <span style="color: green">${lowestMonthName.toUpperCase()}</p>`;
+    precinctInfoPanel.innerHTML = `<p>Neighborhood with most auto theft: <span style="color: red">${highestNeighborhood.toUpperCase()}</p>`;
+    precinctInfoPanel.innerHTML += `<p>Month with most auto theft: <span style="color: blue">${highestMonthName.toUpperCase()}</p>`;
+    precinctInfoPanel.innerHTML += `<p>Month with least auto theft: <span style="color: green">${lowestMonthName.toUpperCase()}</p>`;
 }
 
 // Fetch the JSON data and create the heatmap
@@ -217,7 +217,7 @@ d3.json(capsules).then(function (data) {
     // Create a custom icon for the car image
     var carIcon = L.icon({
         iconUrl: 'https://cdn1.iconfinder.com/data/icons/unicons-line-vol-2/24/car-sideview-512.png', 
-        iconSize: [32, 32], // Adjust the size of the icon 
+        iconSize: [32, 32], 
         iconAnchor: [16, 32],
         popupAnchor: [0, -32]
     });
@@ -244,8 +244,7 @@ d3.json(capsules).then(function (data) {
 // Fetch the GeoJSON data for police precincts
 d3.json(precincts).then(function(data) {
     console.log(data);
-    // Assuming your GeoJSON has a MultiPolygon geometry
-    geojsonPrecincts = L.geoJSON(data, {
+        geojsonPrecincts = L.geoJSON(data, {
         style: {
             color: "blue",
             fillColor: "blue",
@@ -258,7 +257,6 @@ d3.json(precincts).then(function(data) {
 // Fetch the GeoJSON data for neighborhoods
 d3.json(neighborhoods).then(function(data) {
     console.log(data);
-    // Assuming your GeoJSON has a MultiPolygon geometry
     geojsonNeighborhoods = L.geoJSON(data, {
         style: {
             color: "red",
@@ -302,7 +300,7 @@ function addTextMarkers() {
     var textIcon1 = L.divIcon({
         className: 'text-icon',
         html: '<div style="font-weight: bold;">Precinct 1</div>',
-        iconSize: [100, 20],  // Adjust the size of the icon
+        iconSize: [100, 20],  
         iconAnchor: [50, 0],  // Adjust the anchor point
     });
 
