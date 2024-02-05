@@ -30,7 +30,8 @@ precinct and neighborhood.   2 vizualizations were developed:
     - neighborhoods and 
     - precincts
 ## Interaction:
-
+* The Bar Graph is contolled by the Precinct Selector:  Sewlect 1 through 5 to see the pricints displayed in the Bar Chart and the precinct information box.
+* The Heat Map is controled by zooming in and out using the + and - in the upper left corner.  the neighborhood and precinct layers can be turned on and off using the buttons in the upper right.
 ## Ethical:
 * Does the data reflect the reality? yes the source is the government
 * Showing a map of neighborhoods with high car theft rates without other facts could be misleading
