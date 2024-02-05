@@ -1,0 +1,34 @@
+#custom-bg {
+    background-image: url('https://img.freepik.com/free-photo/close-up-man-trying-break-into-car_23-2149133092.jpg?w=1380&t=st=1706808449~exp=1706809049~hmac=ddb43bfcebc6f921da347200068ec6f0f8e597400415582d13c460e186366798');
+    -webkit-background-size: cover; 
+    -moz-background-size: cover;
+    -o-background-size: cover; 
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#text {
+    font-weight: bold;
+    font-size: large;
+}
+
+.col-md-12.jumbotron.text-center {
+    background-image: url('https://img.freepik.com/free-photo/close-up-man-trying-break-into-car_23-2149133092.jpg?w=1380&t=st=1706808449~exp=1706809049~hmac=ddb43bfcebc6f921da347200068ec6f0f8e597400415582d13c460e186366798');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color:white;
+} 
+
+.neighborhood {
+    color: red; /* Customize the color for the neighborhood */
+}
+
+.month-highest {
+    color: blue; /* Customize the color for the month with the highest offense count */
+}
+
+.month-lowest {
+    color: green; /* Customize the color for the month with the lowest offense count */
+}
