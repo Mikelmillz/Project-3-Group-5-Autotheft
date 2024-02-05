@@ -20,20 +20,23 @@ How do the following impact the number of auto theft incidents in Minneapolis?
 https://opendata.minneapolismn.gov/datasets/cityoflakes::police-incidents-2023/about    
 https://vote.minneapolismn.gov/media/-www-content-assets/documents/Reduced-Size-2022-Minneapolis-Wards-and-Precincts.pdf
 ## Project:
-Create an interactive dashboard to illustrate the Auto Theft occurances for 2023.  Showing occrances by 
-precinct and neighborhood.   2 vizualizations were developed:
+Create an interactive dashboard to illustrate the Auto Theft occurrences for 2023.  Showing occurrences by 
+precinct and neighborhood.   3 visualizations were developed:
 * Bar chart of the precinct statistics
   - Toggle Box
   - Drop down for precincts stats
 * Heatmap of incidence
-  - Layers for 
-    - neighborhoods and 
-    - precincts
+
+* Mapping layer outlining
+  - neighborhoods and 
+  - precincts
+ 
+    
 ## Interaction:
-* The Bar Graph is contolled by the Precinct Selector:  Sewlect 1 through 5 to see the pricints displayed in the Bar Chart and the precinct information box.
-* The Heat Map is controled by zooming in and out using the + and - in the upper left corner.  the neighborhood and precinct layers can be turned on and off using the buttons in the upper right.
+* The Bar Graph is controlled by the Precinct Selector:  Select 1 through 5 to see the pricints displayed in the Bar Chart and the precinct information box.
+* The Heat Map is controlled by zooming in and out using the + and - in the upper left corner.  the neighborhood and precinct layers can be turned on and off using the buttons in the upper right.
 ## Ethical:
-* Does the data reflect the reality? yes the source is the government
+* Does the data reflect the reality? Is the source reliable? 
 * Showing a map of neighborhoods with high car theft rates without other facts could be misleading
 * Privacy concerns, map goes to the level of specific homes, but does not share address information; However, the data did show the latitude and longitude of the location.
 * Could this be used to drive down real estate prices? Has it been used for that purpose?
@@ -44,7 +47,7 @@ https://matplotlib.org/stable/gallery/lines_bars_and_markers/bar_colors.html#sph
 
 https://stackoverflow.com/questions/59406167/plotly-how-to-filter-a-pandas-dataframe-using-a-dropdown-menu
 
-Dallin Whitacer- Instructor: Coding sugestions and error resolution
+Dallin Whitaker- Instructor: Coding suggestions and error resolution
 
 ## References:
 https://www.americanexperiment.org/minneapolis-nears-annual-record-for-auto-thefts-and-its-only-september/#:~:text=As%20of%20Sept.,per%20hour%2C%2024%2F7.
