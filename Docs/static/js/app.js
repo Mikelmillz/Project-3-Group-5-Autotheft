@@ -9,10 +9,9 @@ const precincts = "/api/v1.0/precincts";
 const neighborhoods = "/api/v1.0/neighborhoods";
 
 var map = L.map('map').setView([44.9778, -93.2650], 12);
-var markers = L.markerClusterGroup(); // Move this outside the d3.json callback
-
-var geojsonPrecincts, geojsonNeighborhoods; // Declare as global variables
-
+var markers = L.markerClusterGroup(); 
+var geojsonPrecincts, geojsonNeighborhoods; 
+var textMarker1, textMarker2, textMarker3, textMarker4, textMarker5; 
 
 document.addEventListener("DOMContentLoaded", function() {
     // Load Leaflet library
@@ -200,9 +199,9 @@ function calculateAndUpdatePrecinctInfo(data) {
 
     // Update the Precinct Info panel with the calculated information
     var precinctInfoPanel = document.getElementById('precinct-info');
-    precinctInfoPanel.innerHTML = `<p>Neighborhood with highest auto theft rate: <span style="color: red">${highestNeighborhood.toUpperCase()}</p>`;
-    precinctInfoPanel.innerHTML += `<p>Month with the most auto thefts: <span style="color: blue">${highestMonthName.toUpperCase()}</p>`;
-    precinctInfoPanel.innerHTML += `<p>Monthwith the least auto thefts: <span style="color: green">${lowestMonthName.toUpperCase()}</p>`;
+    precinctInfoPanel.innerHTML = `<p>Neighborhood with highest offense: <span style="color: red">${highestNeighborhood.toUpperCase()}</p>`;
+    precinctInfoPanel.innerHTML += `<p>Highest offense month: <span style="color: blue">${highestMonthName.toUpperCase()}</p>`;
+    precinctInfoPanel.innerHTML += `<p>Lowest offense month: <span style="color: green">${lowestMonthName.toUpperCase()}</p>`;
 }
 
 // Fetch the JSON data and create the heatmap
@@ -275,4 +274,106 @@ d3.json(neighborhoods).then(function(data) {
         "Precincts": geojsonPrecincts
     };
     L.control.layers(null, baseMaps).addTo(map);
+
+    // Add a control layer for switching between layers
+    var baseMaps = {
+        "Neighborhoods": geojsonNeighborhoods,
+        "Precincts": geojsonPrecincts
+    };
+
+    L.control.layers(null, baseMaps, { collapsed: false }).addTo(map);
+
+    // Listen for layer control events to handle removal of text markers
+    map.on('overlayremove', function (event) {
+        if (event.layer === geojsonPrecincts) {
+            removeTextMarkers();
+        }
+    });
+
+    map.on('overlayadd', function (event) {
+        if (event.layer === geojsonPrecincts) {
+            addTextMarkers();
+        }
+    });
 });
+
+// Function to add text markers
+function addTextMarkers() {
+    var textIcon1 = L.divIcon({
+        className: 'text-icon',
+        html: '<div style="font-weight: bold;">Precinct 1</div>',
+        iconSize: [100, 20],  // Adjust the size of the icon
+        iconAnchor: [50, 0],  // Adjust the anchor point
+    });
+
+    var coordinates1 = [44.9778, -93.2650];
+
+    textMarker1 = L.marker(coordinates1, { icon: textIcon1 }).addTo(map);
+
+    var textIcon2 = L.divIcon({
+        className: 'text-icon',
+        html: '<div style="font-weight: bold;">Precinct 2</div>',
+        iconSize: [100, 20],  // Adjust the size of the icon
+        iconAnchor: [50, 0],  // Adjust the anchor point
+    });
+
+    var coordinates2 = [45.005641, -93.23];
+
+    textMarker2 = L.marker(coordinates2, { icon: textIcon2 }).addTo(map);
+
+    var textIcon4 = L.divIcon({
+        className: 'text-icon',
+        html: '<div style="font-weight: bold;">Precinct 4</div>',
+        iconSize: [100, 20],  // Adjust the size of the icon
+        iconAnchor: [50, 0],  // Adjust the anchor point
+    });
+
+    var coordinates4 = [45.017998, -93.292790];
+
+    textMarker4 = L.marker(coordinates4, { icon: textIcon4 }).addTo(map);
+
+    var textIcon3 = L.divIcon({
+        className: 'text-icon',
+        html: '<div style="font-weight: bold;">Precinct 3</div>',
+        iconSize: [100, 20],  // Adjust the size of the icon
+        iconAnchor: [50, 0],  // Adjust the anchor point
+    });
+
+    var coordinates3 = [44.941066, -93.238411
+
+    ];
+
+    textMarker3 = L.marker(coordinates3, { icon: textIcon3 }).addTo(map);
+
+    var textIcon5 = L.divIcon({
+        className: 'text-icon',
+        html: '<div style="font-weight: bold;">Precinct 5</div>',
+        iconSize: [100, 20],  // Adjust the size of the icon
+        iconAnchor: [50, 0],  // Adjust the anchor point
+    });
+
+    var coordinates5 = [44.936255, -93.29915
+
+    ];
+
+    textMarker5 = L.marker(coordinates5, { icon: textIcon5 }).addTo(map);
+}
+
+// Function to remove text markers
+function removeTextMarkers() {
+    if (textMarker1) {
+        map.removeLayer(textMarker1);
+    }
+    if (textMarker2) {
+        map.removeLayer(textMarker2);
+    }
+    if (textMarker3) {
+        map.removeLayer(textMarker3);
+    }
+    if (textMarker4) {
+        map.removeLayer(textMarker4);
+    }
+    if (textMarker5) {
+        map.removeLayer(textMarker5);
+    }
+}

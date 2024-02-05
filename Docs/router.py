@@ -9,25 +9,6 @@ from flask import Flask, jsonify, render_template
 
 
 #################################################
-# Database Setup
-#################################################
-engine = create_engine("sqlite:///autotheft.db")
-
-# reflect an existing database into a new model
-Base = automap_base()
-# reflect the tables
-Base.prepare(autoload_with=engine)
-
-# Save reference to the table
-AutoTheftTable = Base.classes.autotheft_tb
-
-#################################################
-# Flask Setup
-#################################################
-app = Flask(__name__)
-
-
-#################################################
 # Flask Routes
 #################################################
 
@@ -41,9 +22,6 @@ Base.prepare(autoload_with=engine)
 # Save reference to the table
 AutoTheftTable = Base.classes.autotheft_tb
 
-#################################################
-# Flask Setup
-#################################################
 app = Flask(__name__)
 
 #################################################
