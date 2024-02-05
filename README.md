@@ -11,7 +11,7 @@ Analysis of auto thefts in Minneapolis looking at trends in incidence rate
 * Graphic rich topic
 ## Questions: 
 How do the following impact the number of auto theft incidents in Minneapolis?
-* Day of week
+* Day of week  - dropped due to time constraints
 * Precinct
 * Time of year (month)
 * Time of day - dropped due to time constraints
