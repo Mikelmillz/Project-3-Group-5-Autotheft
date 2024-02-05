@@ -27,7 +27,8 @@ precinct and neighborhood.   4 visualizations were developed:
 * Drop down for precincts information when it is selected
 * Heatmap of incidence
 * Mapping layer outlining
-  - neighborhoods 
+  - neighborhoods
+  - precincts
 ## Interaction:
 * The Bar Graph is controlled by the Precinct Selector:  Select 1 through 5 to see the precincts displayed in the Bar Chart.
 * The precinct Information box is also controlled by the precinct Selector
